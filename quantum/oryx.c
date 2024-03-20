@@ -68,9 +68,14 @@ void raw_hid_receive(uint8_t *data, uint8_t length) {
             break; // Keeping this for backwards compatibility with older versions of Wally / Keymapp
 
         case ORYX_SET_LAYER:
+            // The first param's byte is on / off
+            // The second param's byte is the layer number
             if (rawhid_state.paired == true) {
-                layer_clear();
-                layer_on(param[0]);
+                if (param[0] == 0) {
+                    layer_off(param[1]);
+                } else {
+                    layer_on(param[1]);
+                }
             }
             break;
 
