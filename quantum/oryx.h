@@ -74,6 +74,7 @@ extern rawhid_state_t rawhid_state;
 void oryx_error(uint8_t code);
 void pairing_failed_event(void);
 void pairing_succesful_event(void);
+void toggle_smart_layer(void);
 
 void oryx_layer_event(void);
 bool process_record_oryx(uint16_t keycode, keyrecord_t* record);
