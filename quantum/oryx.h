@@ -21,7 +21,7 @@ Once the host has paired, it can freely use the commands define in the Oryx_Comm
 #    define RAW_EPSIZE 32
 #endif
 
-#define ORYX_PROTOCOL_VERSION = 0x03
+#define ORYX_PROTOCOL_VERSION 0x03
 #define ORYX_STOP_BIT -2
 
 enum Oryx_Command_Code {

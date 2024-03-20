@@ -61,6 +61,16 @@ void raw_hid_receive(uint8_t *data, uint8_t length) {
             break;
         }
 
+        case ORYX_GET_PROTOCOL_VERSION: {
+            uint8_t event[RAW_EPSIZE];
+            event[0] = ORYX_EVT_GET_PROTOCOL_VERSION;
+            event[1] = ORYX_PROTOCOL_VERSION;
+            event[2] = ORYX_STOP_BIT;
+
+            raw_hid_send(event, RAW_EPSIZE);
+            break;
+        }
+
         case ORYX_CMD_PAIRING_INIT:
             pairing_success_event();
 
