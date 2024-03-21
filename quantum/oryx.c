@@ -48,6 +48,13 @@ void toggle_smart_layer(void) {
     raw_hid_send(event, sizeof(event));
 }
 
+void trigger_smart_layer(void) {
+    uint8_t event[RAW_EPSIZE];
+    event[0] = ORYX_EVT_TRIGGER_SMART_LAYER;
+    event[1] = ORYX_STOP_BIT;
+    raw_hid_send(event, sizeof(event));
+}
+
 void raw_hid_receive(uint8_t *data, uint8_t length) {
     uint8_t  command = data[0];
     uint8_t *param   = &data[1];
